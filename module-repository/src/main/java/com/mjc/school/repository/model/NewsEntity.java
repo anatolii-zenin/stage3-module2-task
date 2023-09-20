@@ -2,7 +2,7 @@ package com.mjc.school.repository.model;
 
 import java.time.LocalDateTime;
 
-public interface NewsEntity<T> extends BaseEntity<T> {
+public interface NewsEntity extends BaseEntity<Long> {
     String getTitle();
     void setTitle(String title);
     String getContent();
@@ -11,6 +11,6 @@ public interface NewsEntity<T> extends BaseEntity<T> {
     void setCreateDate(LocalDateTime createDate);
     LocalDateTime getLastUpdateDate();
     void setLastUpdateDate(LocalDateTime lastUpdateDate);
-    T getAuthorId();
-    void setAuthorId(T authorId);
+    Long getAuthorId();
+    void setAuthorId(Long authorId);
 }

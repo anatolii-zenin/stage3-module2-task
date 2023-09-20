@@ -1,42 +1,27 @@
 package com.mjc.school.repository.implementation;
 
-import com.mjc.school.repository.BaseRepository;
+import com.mjc.school.repository.AuthorRepository;
 import com.mjc.school.repository.datasource.DataSource;
 import com.mjc.school.repository.model.AuthorEntity;
-import com.mjc.school.repository.model.BaseEntity;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
-public class AuthorRepositoryImpl<K> implements BaseRepository<AuthorEntity<K>, K> {
-
+@Repository @Qualifier("AuthorRepository")
+@Scope("singleton")
+public class AuthorRepositoryImpl extends GenericRepositoryImpl<AuthorEntity> implements AuthorRepository {
     @Override
-    public List<AuthorEntity<K>> readAll() {
+    public AuthorEntity create(AuthorEntity entity) {
         return null;
     }
 
     @Override
-    public Optional<AuthorEntity<K>> readById(K id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public AuthorEntity<K> create(AuthorEntity<K> entity) {
+    public AuthorEntity update(AuthorEntity entity) {
         return null;
     }
 
-    @Override
-    public AuthorEntity<K> update(AuthorEntity<K> entity) {
-        return null;
-    }
-
-    @Override
-    public boolean deleteById(K id) {
-        return false;
-    }
-
-    @Override
-    public boolean existById(K id) {
-        return false;
+    public AuthorRepositoryImpl(DataSource dataSource) {
+        this.dataSource = dataSource;
+        allItems = dataSource.readAllAuthors();
     }
 }

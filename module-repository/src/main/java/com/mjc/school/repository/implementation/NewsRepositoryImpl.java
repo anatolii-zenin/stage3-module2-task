@@ -1,42 +1,29 @@
 package com.mjc.school.repository.implementation;
 
 import com.mjc.school.repository.BaseRepository;
-import com.mjc.school.repository.model.implementation.NewsModel;
+import com.mjc.school.repository.NewsRepository;
+import com.mjc.school.repository.datasource.DataSource;
+import com.mjc.school.repository.model.NewsEntity;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
-public class NewsRepositoryImpl<K> implements BaseRepository<NewsModel<K>, K> {
-
+@Repository @Qualifier("NewsRepository")
+public class NewsRepositoryImpl extends GenericRepositoryImpl<NewsEntity> implements NewsRepository {
     @Override
-    public List<NewsModel<K>> readAll() {
+    public NewsEntity create(NewsEntity entity) {
         return null;
     }
 
     @Override
-    public Optional<NewsModel<K>> readById(K id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public NewsModel<K> create(NewsModel<K> entity) {
+    public NewsEntity update(NewsEntity entity) {
         return null;
     }
 
-    @Override
-    public NewsModel<K> update(NewsModel<K> entity) {
-        return null;
-    }
-
-    @Override
-    public boolean deleteById(K id) {
-        return false;
-    }
-
-    @Override
-    public boolean existById(K id) {
-        return false;
+    public NewsRepositoryImpl(DataSource dataSource) {
+        this.dataSource = dataSource;
+        allItems = dataSource.readAllNews();
     }
 }
