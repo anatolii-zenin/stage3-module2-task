@@ -1,9 +1,11 @@
 package com.mjc.school.repository.datasource;
 
-import com.mjc.school.repository.model.BaseEntity;
+import com.mjc.school.repository.model.AuthorEntity;
+import com.mjc.school.repository.model.NewsEntity;
 
 import java.util.List;
 
 public interface DataSource {
-    List<String> readFile(String filename);
+    List<AuthorEntity> readAllAuthors();
+    List<NewsEntity> readAllNews();
 }

@@ -1,17 +1,16 @@
 package com.mjc.school.repository.implementation;
 
 import com.mjc.school.repository.BaseRepository;
-import com.mjc.school.repository.NewsRepository;
 import com.mjc.school.repository.datasource.DataSource;
 import com.mjc.school.repository.model.NewsEntity;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Repository @Qualifier("NewsRepository")
-public class NewsRepositoryImpl extends GenericRepositoryImpl<NewsEntity> implements NewsRepository {
+@Scope("singleton")
+public class NewsRepositoryImpl extends GenericRepositoryImpl<NewsEntity>
+        implements BaseRepository<NewsEntity, Long> {
     @Override
     public NewsEntity create(NewsEntity entity) {
         return null;

@@ -3,12 +3,11 @@ package com.mjc.school.repository.model.implementation;
 import com.mjc.school.repository.model.AuthorEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component @Qualifier("AuthorModel")
+@Component
 @Setter
 @Getter
 public class AuthorModel implements AuthorEntity {
