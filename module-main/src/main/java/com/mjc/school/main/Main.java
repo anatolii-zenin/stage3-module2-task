@@ -1,33 +1,27 @@
 package com.mjc.school.main;
 
+import com.mjc.school.controller.NewsController;
+import com.mjc.school.controller.command.invoker.Invoker;
+import com.mjc.school.controller.command.invoker.implementation.InvokerImpl;
+import com.mjc.school.controller.implementation.NewsControllerImpl;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        var newsHelper = new NewsHelper();
+        var context = new AnnotationConfigApplicationContext(MainSpringConfig.class);
+        Invoker invoker = context.getBean(InvokerImpl.class);
         Scanner in = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
             try {
-                System.out.println("""
-                        Select operation:
-                        0. Get all news
-                        1. Get news by ID
-                        2. Create news
-                        3. Update news
-                        4. Delete news by ID
-                        -1. Exit""");
+                invoker.commandList();
                 int operationChoice = Integer.parseInt(in.nextLine());
-                switch (operationChoice) {
-                    case 0 -> newsHelper.getAllNews();
-                    case 1 -> newsHelper.getNewsById();
-                    case 2 -> newsHelper.createNews();
-                    case 3 -> newsHelper.updateNews();
-                    case 4 -> newsHelper.deleteNewsById();
-                    case -1 -> exit = true;
-                    default -> System.out.println("No such operation: " + operationChoice);
-                }
+                if (operationChoice == -1)
+                    exit = true;
+                invoker.runCommand(operationChoice);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
