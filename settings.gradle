@@ -4,5 +4,4 @@ include 'module-repository'
 include 'module-service'
 include 'module-web'
 include 'module-main'
-include 'module-dto'
 

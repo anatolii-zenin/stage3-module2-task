@@ -1,9 +1,9 @@
 package com.mjc.school.service;
 
-import com.mjc.school.dto.implementation.AuthorDTOReqImpl;
-import com.mjc.school.dto.implementation.AuthorDTORespImpl;
-import com.mjc.school.dto.implementation.NewsDTOReqImpl;
-import com.mjc.school.dto.implementation.NewsDTORespImpl;
+import com.mjc.school.service.dto.implementation.AuthorDTOReqImpl;
+import com.mjc.school.service.dto.implementation.AuthorDTORespImpl;
+import com.mjc.school.service.dto.implementation.NewsDTOReqImpl;
+import com.mjc.school.service.dto.implementation.NewsDTORespImpl;
 import com.mjc.school.repository.model.implementation.AuthorModel;
 import com.mjc.school.repository.model.implementation.NewsModel;
 import org.mapstruct.Mapper;

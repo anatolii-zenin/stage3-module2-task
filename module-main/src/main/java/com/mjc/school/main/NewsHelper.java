@@ -2,9 +2,9 @@ package com.mjc.school.main;
 
 import com.mjc.school.controller.BaseController;
 import com.mjc.school.controller.implementation.NewsControllerImpl;
-import com.mjc.school.dto.NewsDTOReq;
-import com.mjc.school.dto.NewsDTOResp;
-import com.mjc.school.dto.implementation.NewsDTOReqImpl;
+import com.mjc.school.service.dto.NewsDTOReq;
+import com.mjc.school.service.dto.NewsDTOResp;
+import com.mjc.school.service.dto.implementation.NewsDTOReqImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;

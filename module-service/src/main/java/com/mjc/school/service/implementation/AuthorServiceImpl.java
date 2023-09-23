@@ -1,9 +1,9 @@
 package com.mjc.school.service.implementation;
 
-import com.mjc.school.dto.AuthorDTOReq;
-import com.mjc.school.dto.AuthorDTOResp;
-import com.mjc.school.dto.NewsDTOResp;
-import com.mjc.school.dto.implementation.AuthorDTOReqImpl;
+import com.mjc.school.service.dto.AuthorDTOReq;
+import com.mjc.school.service.dto.AuthorDTOResp;
+import com.mjc.school.service.dto.NewsDTOResp;
+import com.mjc.school.service.dto.implementation.AuthorDTOReqImpl;
 import com.mjc.school.repository.AuthorRepository;
 import com.mjc.school.repository.model.AuthorEntity;
 import com.mjc.school.repository.model.implementation.AuthorModel;

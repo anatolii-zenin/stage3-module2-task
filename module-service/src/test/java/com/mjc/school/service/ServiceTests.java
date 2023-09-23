@@ -1,7 +1,7 @@
 package com.mjc.school.service;
 
-import com.mjc.school.dto.AuthorDTOReq;
-import com.mjc.school.dto.implementation.AuthorDTOReqImpl;
+import com.mjc.school.service.dto.AuthorDTOReq;
+import com.mjc.school.service.dto.implementation.AuthorDTOReqImpl;
 import com.mjc.school.service.implementation.AuthorServiceImpl;
 import com.mjc.school.service.implementation.NewsServiceImpl;
 import org.junit.jupiter.api.AfterAll;

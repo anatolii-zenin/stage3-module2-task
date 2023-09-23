@@ -1,8 +1,8 @@
-package com.mjc.school.dto;
+package com.mjc.school.service.dto;
 
 import java.time.LocalDateTime;
 
-public interface AuthorDTOResp extends AuthorDTOReq {
+public interface NewsDTOResp extends NewsDTOReq {
     void setCreateDate(LocalDateTime localDateTime);
     LocalDateTime getCreateDate();
     void setLastUpdateDate(LocalDateTime lastUpdateDate);

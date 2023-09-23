@@ -1,10 +1,5 @@
 package com.mjc.school.main;
 
-import com.mjc.school.controller.BaseController;
-import com.mjc.school.dto.NewsDTOReq;
-import com.mjc.school.dto.NewsDTOResp;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Scanner;
 
 

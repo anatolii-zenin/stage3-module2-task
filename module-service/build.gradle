@@ -1,4 +1,5 @@
 dependencies {
     implementation project(':module-repository')
-    implementation project(':module-dto')
+    implementation("org.projectlombok:lombok:1.18.28")
+    annotationProcessor("org.projectlombok:lombok:1.18.28")
 }

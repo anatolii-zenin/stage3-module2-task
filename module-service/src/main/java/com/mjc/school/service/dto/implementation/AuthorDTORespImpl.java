@@ -1,6 +1,6 @@
-package com.mjc.school.dto.implementation;
+package com.mjc.school.service.dto.implementation;
 
-import com.mjc.school.dto.AuthorDTOResp;
+import com.mjc.school.service.dto.AuthorDTOResp;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;

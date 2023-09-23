@@ -1,8 +1,8 @@
 package com.mjc.school.controller.implementation;
 
 import com.mjc.school.controller.AuthorController;
-import com.mjc.school.dto.AuthorDTOReq;
-import com.mjc.school.dto.AuthorDTOResp;
+import com.mjc.school.service.dto.AuthorDTOReq;
+import com.mjc.school.service.dto.AuthorDTOResp;
 import com.mjc.school.service.AuthorService;
 import org.springframework.stereotype.Controller;
 
