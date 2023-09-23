@@ -1,8 +1,7 @@
-import com.mjc.school.repository.BaseRepository;
-import com.mjc.school.repository.SpringConfig;
+package com.mjc.school.repository;
+
 import com.mjc.school.repository.datasource.implementation.DataSourceImpl;
 import com.mjc.school.repository.implementation.AuthorRepositoryImpl;
-import com.mjc.school.repository.model.AuthorEntity;
 import com.mjc.school.repository.model.NewsEntity;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,7 +16,7 @@ public class DataSourceTests {
     private static AnnotationConfigApplicationContext context;
     @BeforeAll
     public static void setUp() {
-        context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        context = new AnnotationConfigApplicationContext(RepoSpringConfig.class);
     }
     @AfterAll
     public static void tearDown() {
@@ -31,7 +30,7 @@ public class DataSourceTests {
     }
     @Test
     public void repositoryTest() {
-        BaseRepository<AuthorEntity, Long> authorsRepo = context.getBean(AuthorRepositoryImpl.class);
+        AuthorRepository authorsRepo = context.getBean(AuthorRepositoryImpl.class);
         var str = authorsRepo.readAll().get(0).getName();
         assertEquals("First line is not as expected:", "William Shakespeare", str);
     }

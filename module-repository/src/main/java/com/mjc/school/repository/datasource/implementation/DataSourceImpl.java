@@ -5,6 +5,7 @@ import com.mjc.school.repository.model.AuthorEntity;
 import com.mjc.school.repository.model.NewsEntity;
 import com.mjc.school.repository.model.implementation.AuthorModel;
 import com.mjc.school.repository.model.implementation.NewsModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -18,11 +19,9 @@ import java.util.List;
 @Component
 @Scope("singleton")
 public class DataSourceImpl implements DataSource {
-    private final String titleFileName = "news";
-
-    private final String contentFileName = "content";
-
-    private final String authorFileName = "authors";
+    private String titleFileName;
+    private String contentFileName;
+    private String authorFileName;
 
     private List<AuthorEntity> allAuthors = new ArrayList<>();
 
@@ -85,6 +84,14 @@ public class DataSourceImpl implements DataSource {
         }
 
         return allAuthors;
+    }
+
+    public DataSourceImpl(@Value("${authorFileName}") String authorFileName,
+                          @Value("${titleFileName}") String titleFileName,
+                          @Value("${contentFileName}") String contentFileName) {
+        this.authorFileName = authorFileName;
+        this.contentFileName = contentFileName;
+        this.titleFileName = titleFileName;
     }
 
 }
