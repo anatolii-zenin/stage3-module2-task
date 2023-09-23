@@ -15,4 +15,16 @@ public class AuthorModel implements AuthorEntity {
     private String name;
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
+
+    @Override
+    public boolean equals(Object authorEntityObj) {
+        if (!(authorEntityObj instanceof AuthorModel otherAuthor))
+            return false;
+        return this.id.equals(otherAuthor.id) && this.name.equals(otherAuthor.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.intValue() + name.hashCode();
+    }
 }

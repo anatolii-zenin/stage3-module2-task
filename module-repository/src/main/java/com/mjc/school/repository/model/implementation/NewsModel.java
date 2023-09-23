@@ -17,4 +17,16 @@ public class NewsModel implements NewsEntity {
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
     private Long authorId;
+
+    @Override
+    public boolean equals(Object newsEntityObj) {
+        if (!(newsEntityObj instanceof NewsModel otherNews))
+            return false;
+        return this.id.equals(otherNews.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.intValue() + title.hashCode() + content.hashCode();
+    }
 }
