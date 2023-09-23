@@ -38,8 +38,16 @@ public class AuthorRepositoryImpl extends BaseRepositoryImpl<AuthorEntity>
         return allItems.get(index);
     }
 
+    @Override
+    public boolean deleteById(Long id) {
+        allItems.removeIf(item -> item.getId().equals(id));
+        dataSource.getAllNews().removeIf(item -> item.getAuthorId().equals(id));
+        return true;
+    }
+
     public AuthorRepositoryImpl(DataSource dataSource) {
         this.dataSource = dataSource;
-        allItems = dataSource.readAllAuthors();
+        allItems = dataSource.getAllAuthors();
     }
+
 }

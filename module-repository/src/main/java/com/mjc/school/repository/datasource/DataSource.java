@@ -6,6 +6,6 @@ import com.mjc.school.repository.model.NewsEntity;
 import java.util.List;
 
 public interface DataSource {
-    List<AuthorEntity> readAllAuthors();
-    List<NewsEntity> readAllNews();
+    List<AuthorEntity> getAllAuthors();
+    List<NewsEntity> getAllNews();
 }

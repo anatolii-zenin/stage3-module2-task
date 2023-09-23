@@ -51,7 +51,7 @@ public class DataSourceImpl implements DataSource {
         return readFile(authorFileName);
     }
 
-    public List<NewsEntity> readAllNews() {
+    private void readAllNews() {
         var titleLines = readTitleLines();
         var contentLines = readContentLines();
         for (int i=0; i < titleLines.size(); i++) {
@@ -66,11 +66,9 @@ public class DataSourceImpl implements DataSource {
 
             allNews.add(news);
         }
-
-        return allNews;
     }
 
-    public List<AuthorEntity> readAllAuthors() {
+    private void readAllAuthors() {
         var authorLines = readAuthorLines();
         for (int i = 0; i < authorLines.size(); i++) {
             AuthorEntity author = new AuthorModel();
@@ -82,8 +80,16 @@ public class DataSourceImpl implements DataSource {
 
             allAuthors.add(author);
         }
+    }
 
+    @Override
+    public List<AuthorEntity> getAllAuthors() {
         return allAuthors;
+    }
+
+    @Override
+    public List<NewsEntity> getAllNews() {
+        return allNews;
     }
 
     public DataSourceImpl(@Value("${authorFileName}") String authorFileName,
@@ -92,6 +98,9 @@ public class DataSourceImpl implements DataSource {
         this.authorFileName = authorFileName;
         this.contentFileName = contentFileName;
         this.titleFileName = titleFileName;
+
+        readAllAuthors();
+        readAllNews();
     }
 
 }

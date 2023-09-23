@@ -25,7 +25,7 @@ public class DataSourceTests {
     @Test
     public void readAllTest() {
         var dataSource = context.getBean(DataSourceImpl.class);
-        List<NewsEntity> news = dataSource.readAllNews();
+        List<NewsEntity> news = dataSource.getAllNews();
         assertEquals("First line is not as expected:", "GENERAL PROVISIONS", news.get(0).getTitle());
     }
     @Test

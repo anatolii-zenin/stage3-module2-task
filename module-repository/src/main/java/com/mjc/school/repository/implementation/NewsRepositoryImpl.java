@@ -41,6 +41,6 @@ public class NewsRepositoryImpl extends BaseRepositoryImpl<NewsEntity>
 
     public NewsRepositoryImpl(DataSource dataSource) {
         this.dataSource = dataSource;
-        allItems = dataSource.readAllNews();
+        allItems = dataSource.getAllNews();
     }
 }
