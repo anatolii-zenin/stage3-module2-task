@@ -44,7 +44,7 @@ public class DataSourceImpl implements DataSource {
     }
 
     private List<String> readContentLines() {
-        return readFile(titleFileName);
+        return readFile(contentFileName);
     }
 
     private List<String> readAuthorLines() {
