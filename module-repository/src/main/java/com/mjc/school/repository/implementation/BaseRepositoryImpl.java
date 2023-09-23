@@ -4,10 +4,11 @@ import com.mjc.school.repository.BaseRepository;
 import com.mjc.school.repository.datasource.DataSource;
 import com.mjc.school.repository.model.BaseEntity;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class GenericRepositoryImpl<T extends BaseEntity<Long>> implements BaseRepository<T, Long> {
+public abstract class BaseRepositoryImpl<T extends BaseEntity<Long>> implements BaseRepository<T, Long> {
     protected DataSource dataSource;
     protected List<T> allItems;
     @Override
@@ -32,10 +33,10 @@ public abstract class GenericRepositoryImpl<T extends BaseEntity<Long>> implemen
 
     @Override
     public boolean deleteById(Long id) {
-        int index = -1;
-        Optional<T> newsToDelete = readById(id);
-        if (allItems.contains(newsToDelete))
-            index = allItems.indexOf(newsToDelete);
+        int index;
+        Optional<T> itemToDelete = readById(id);
+        if (itemToDelete.isPresent() && allItems.contains(itemToDelete.get()))
+            index = allItems.indexOf(itemToDelete.get());
         else
             throw new RuntimeException("found no news object with id: " + id);
         allItems.remove(index);
@@ -45,7 +46,12 @@ public abstract class GenericRepositoryImpl<T extends BaseEntity<Long>> implemen
     @Override
     public boolean existById(Long id) {
         Optional<T> itemById = readById(id);
-        boolean exists = itemById.isPresent() ? true : false;
-        return exists;
+        return itemById.isPresent();
+    }
+
+    protected Long generateID() {
+        Long largestId = allItems.stream()
+                .max(Comparator.comparingLong(BaseEntity::getId)).get().getId();
+        return ++largestId;
     }
 }
