@@ -2,8 +2,10 @@ package com.mjc.school.repository;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@ComponentScan("import com.mjc.school.repository")
-public class SpringConfig {
+@ComponentScan()
+@PropertySource("classpath:repository.properties")
+public class RepoSpringConfig {
 }
