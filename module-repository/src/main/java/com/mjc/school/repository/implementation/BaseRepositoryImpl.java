@@ -22,14 +22,10 @@ public abstract class BaseRepositoryImpl<T extends BaseEntity<Long>> implements 
     }
 
     @Override
-    public T create(T entity) {
-        return null;
-    }
+    public abstract T create(T entity);
 
     @Override
-    public T update(T entity) {
-        return null;
-    }
+    public abstract T update(T entity);
 
     @Override
     public boolean deleteById(Long id) {
