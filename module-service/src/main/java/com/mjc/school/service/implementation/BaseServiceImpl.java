@@ -18,7 +18,11 @@ public abstract class BaseServiceImpl<Req, Resp, Entity extends BaseEntity<Long>
 
     @Override
     public Resp readById(Long id) {
-        return entityToDto(repo.readById(id).get());
+        var item = repo.readById(id);
+        if (item.isPresent())
+            return entityToDto(repo.readById(id).get());
+        else
+            return null;
     }
 
     @Override
@@ -50,11 +54,7 @@ public abstract class BaseServiceImpl<Req, Resp, Entity extends BaseEntity<Long>
         return news;
     }
 
-    protected Entity dtoToEntity(Req dto) {
-        return null;
-    }
+    protected abstract Entity dtoToEntity(Req dto);
 
-    protected Resp entityToDto(Entity model) {
-        return null;
-    }
+    protected abstract Resp entityToDto(Entity model);
 }
