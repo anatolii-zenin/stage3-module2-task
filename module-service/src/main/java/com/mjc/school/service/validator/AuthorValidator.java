@@ -14,9 +14,9 @@ public class AuthorValidator implements Validator<AuthorDTOReq> {
         StringBuilder errors = new StringBuilder();
         if (!validateRange(req.getName().length(),nameLengthFrom, nameLengthTo))
             errors.append("Name length should be between " + nameLengthFrom + " and " +
-                    nameLengthTo + " characters. Current length: " + req.getName().length());
+                    nameLengthTo + " characters. Current length: " + req.getName().length() + ".\n");
         if (req.getId() != null && authorService.readById(req.getId()) == null)
-            errors.append("No author with id " + req.getId() + " exists.");
+            errors.append("Author with id " + req.getId() + " does not exist.\n");
         if (errors.length() > 0)
             throw new RuntimeException(errors.toString());
         return true;

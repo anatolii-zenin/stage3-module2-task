@@ -19,7 +19,7 @@ public class ValidatorAspect {
     private AuthorService authorService;
     @Autowired
     private NewsService newsService;
-    @Before("withinService() && onCreateOrUpdate() && args(arg)")
+    @Before("execution(public * *(.., @com.mjc.school.service.validator.Validate (*), ..)) && args(arg)")
     public void validate(Object arg) {
         System.out.println("Validating input...");
         var objClass = arg.getClass();
@@ -34,10 +34,4 @@ public class ValidatorAspect {
             throw new RuntimeException("Validation failed");
         System.out.println("Validation passed.");
     }
-
-    @Pointcut("within(com.mjc.school.service..*)")
-    public void withinService() {}
-
-    @Pointcut("execution(* *.create(..)) || execution(* *.update(..))")
-    public void onCreateOrUpdate() {}
 }

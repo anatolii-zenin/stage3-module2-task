@@ -3,6 +3,7 @@ package com.mjc.school.service.implementation;
 import com.mjc.school.repository.BaseRepository;
 import com.mjc.school.repository.model.BaseEntity;
 import com.mjc.school.service.BaseService;
+import com.mjc.school.service.validator.Validate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,14 +27,14 @@ public abstract class BaseServiceImpl<Req, Resp, Entity extends BaseEntity<Long>
     }
 
     @Override
-    public Resp create(Req createRequest) {
+    public Resp create(@Validate Req createRequest) {
         return entityToDto(
                 repo.create(dtoToEntity(createRequest))
         );
     }
 
     @Override
-    public Resp update(Req updateRequest) {
+    public Resp update(@Validate Req updateRequest) {
         return entityToDto(
                 repo.update(dtoToEntity(updateRequest))
         );
