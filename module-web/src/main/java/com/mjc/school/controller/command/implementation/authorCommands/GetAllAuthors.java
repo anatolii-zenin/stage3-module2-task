@@ -1,4 +1,4 @@
-package com.mjc.school.controller.command.implementation;
+package com.mjc.school.controller.command.implementation.authorCommands;
 
 import com.mjc.school.controller.AuthorController;
 import com.mjc.school.controller.command.Command;

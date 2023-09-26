@@ -1,4 +1,4 @@
-package com.mjc.school.controller.command.implementation;
+package com.mjc.school.controller.command.implementation.newsCommands;
 
 import com.mjc.school.controller.NewsController;
 import com.mjc.school.controller.command.Command;

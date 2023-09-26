@@ -1,4 +1,4 @@
-package com.mjc.school.controller.command.implementation;
+package com.mjc.school.controller.command.implementation.authorCommands;
 
 import com.mjc.school.controller.AuthorController;
 import com.mjc.school.controller.command.Command;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
-public class UpdateAuthor implements Command {
+public class CreateAuthor implements Command {
     @Autowired
     private AuthorController authorController;
-    private final String name = "Update Author";
+    private final String name = "Create Author";
 
     @Override
     public String getName() {
@@ -22,14 +22,11 @@ public class UpdateAuthor implements Command {
     @Override
     public void execute() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter author ID:");
-        Long authorID = Long.parseLong(in.nextLine());
         System.out.println("Enter Name:");
         var name = in.nextLine();
         var req = new AuthorDTOReqImpl();
-        req.setId(authorID);
         req.setName(name);
-        var updatedAuthor = authorController.update(req);
-        System.out.println(updatedAuthor.toString());
+        var newAuthor = authorController.create(req);
+        System.out.println(newAuthor.toString());
     }
 }

@@ -1,18 +1,17 @@
-package com.mjc.school.controller.command.implementation;
+package com.mjc.school.controller.command.implementation.authorCommands;
 
 import com.mjc.school.controller.AuthorController;
 import com.mjc.school.controller.command.Command;
-import com.mjc.school.service.dto.implementation.AuthorDTOReqImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
 @Component
-public class CreateAuthor implements Command {
+public class DeleteAuthor implements Command {
     @Autowired
     private AuthorController authorController;
-    private final String name = "Create Author";
+    private final String name = "Delete Author";
 
     @Override
     public String getName() {
@@ -22,11 +21,10 @@ public class CreateAuthor implements Command {
     @Override
     public void execute() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter Name:");
-        var name = in.nextLine();
-        var req = new AuthorDTOReqImpl();
-        req.setName(name);
-        var newAuthor = authorController.create(req);
-        System.out.println(newAuthor.toString());
+        System.out.println("Enter author ID:");
+        Long id = Long.parseLong(in.nextLine());
+        var result = authorController.deleteById(id);
+        if (result)
+            System.out.println("Successfully deleted");
     }
 }
