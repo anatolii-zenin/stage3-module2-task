@@ -1,7 +1,8 @@
 package com.mjc.school.controller.command.invoker.implementation;
 
 import com.mjc.school.controller.command.Command;
-import com.mjc.school.controller.command.implementation.*;
+import com.mjc.school.controller.command.implementation.authorCommands.*;
+import com.mjc.school.controller.command.implementation.newsCommands.*;
 import com.mjc.school.controller.command.invoker.Invoker;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
